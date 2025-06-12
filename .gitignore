@@ -52,3 +52,7 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+/extern-api.txt
+/.vs
+/TendrAI-API/.vs/TendrAI-API
+*.user
