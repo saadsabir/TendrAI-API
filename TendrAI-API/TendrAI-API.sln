@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TendrAI.Application", "TendrAI.Application\TendrAI.Application.csproj", "{19B254DA-C6A3-48FB-B536-1E9A0C70C7A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TendrAI.Domain", "TendrAI.Domain\TendrAI.Domain.csproj", "{74BF5CD7-1289-4D17-9671-25CB55D94639}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TendrAI.Infrastructure", "TendrAI.Infrastructure\TendrAI.Infrastructure.csproj", "{B523DCC4-ECD8-4314-9B83-83600F646A01}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TendrAI.Tests", "TendrAI.Tests\TendrAI.Tests.csproj", "{F43F2A77-6B4F-46F7-8061-82B0C5389B2E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TendrAI.WebApi", "TendrAI.WebApi\TendrAI.WebApi.csproj", "{7D14127D-8204-426F-AFE5-428A43672102}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19B254DA-C6A3-48FB-B536-1E9A0C70C7A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19B254DA-C6A3-48FB-B536-1E9A0C70C7A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19B254DA-C6A3-48FB-B536-1E9A0C70C7A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19B254DA-C6A3-48FB-B536-1E9A0C70C7A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74BF5CD7-1289-4D17-9671-25CB55D94639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74BF5CD7-1289-4D17-9671-25CB55D94639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74BF5CD7-1289-4D17-9671-25CB55D94639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74BF5CD7-1289-4D17-9671-25CB55D94639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B523DCC4-ECD8-4314-9B83-83600F646A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B523DCC4-ECD8-4314-9B83-83600F646A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B523DCC4-ECD8-4314-9B83-83600F646A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B523DCC4-ECD8-4314-9B83-83600F646A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F43F2A77-6B4F-46F7-8061-82B0C5389B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F43F2A77-6B4F-46F7-8061-82B0C5389B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F43F2A77-6B4F-46F7-8061-82B0C5389B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F43F2A77-6B4F-46F7-8061-82B0C5389B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D14127D-8204-426F-AFE5-428A43672102}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D14127D-8204-426F-AFE5-428A43672102}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D14127D-8204-426F-AFE5-428A43672102}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D14127D-8204-426F-AFE5-428A43672102}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8D07BCF-B4A9-4796-B07A-3C52BA82418A}
+	EndGlobalSection
+EndGlobal
