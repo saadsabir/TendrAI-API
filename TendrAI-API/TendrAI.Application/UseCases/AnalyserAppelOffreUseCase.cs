@@ -5,25 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using TendrAI.Application.Ports.In;
 using TendrAI.Application.Ports.Out;
-using TendrAI.Domain;
+using TendrAI.Domain.Models;
 
 namespace TendrAI.Application.UseCases
 {
     public class AnalyserAppelOffreUseCase : IAnalyserAppelOffre
     {
-        private readonly IOcrService _ocr;
-        private readonly IAssistantIAService _ia;
+        private readonly IPdfPigTextExtractorService _extract;
+        private readonly IOpenAiAssistantService _ia;
 
-        public AnalyserAppelOffreUseCase(IOcrService ocr, IAssistantIAService ia)
+
+        public AnalyserAppelOffreUseCase(IPdfPigTextExtractorService extract, IOpenAiAssistantService ia)
         {
-            _ocr = ocr;
+            _extract = extract;
             _ia = ia;
         }
 
         public async Task<AppelOffre> ExecuteAsync(Stream pdfDocument)
         {
-            var text = await _ocr.ExtractTextAsync(pdfDocument);
-            var appel = await _ia.ResumerAppelOffreAsync(text);
+            var text = await _extract.ExtractTextAsync(pdfDocument); //using PdfPig
+            var appel = _ia.ResumerAppelOffre(text);
             return appel;
         }
     }

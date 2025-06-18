@@ -56,3 +56,6 @@ nunit-*.xml
 /.vs
 /TendrAI-API/.vs/TendrAI-API
 *.user
+/TendrAI-API/.vs/ProjectEvaluation
+/TendrAI-API/TendrAI.WebApi/appsettings.Development.json
+/TendrAI-API/TendrAI.WebApi/appsettings.json

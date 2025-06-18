@@ -1,4 +1,4 @@
-﻿namespace TendrAI.Domain;
+﻿namespace TendrAI.Domain.Models;
 
 public class AppelOffre
 {

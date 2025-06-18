@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TendrAI.Application\TendrAI.Application.csproj" />
+    <ProjectReference Include="..\TendrAI.Infrastructure\TendrAI.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

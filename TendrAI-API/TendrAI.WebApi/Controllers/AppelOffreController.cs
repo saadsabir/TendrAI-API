@@ -14,7 +14,7 @@ namespace TendrAI.WebApi.Controllers
             _useCase = useCase;
         }
 
-        [HttpPost("analyser")]
+        [HttpPost("analyse")]
         public async Task<IActionResult> AnalyserAppelOffre(IFormFile file)
         {
             using var stream = file.OpenReadStream();

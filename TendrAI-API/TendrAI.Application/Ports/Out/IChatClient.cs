@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TendrAI.Domain;
+using OpenAI.Chat;
 
 namespace TendrAI.Application.Ports.Out
 {
-    public interface IAssistantIAService
+    public interface IChatClient
     {
-        Task<AppelOffre> ResumerAppelOffreAsync(string texte);
+        string GetCompletion(List<ChatMessage> messages);
     }
 }
