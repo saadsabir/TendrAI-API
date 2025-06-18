@@ -6,6 +6,8 @@ using TendrAI.Application.Ports.Out;
 using TendrAI.Application.UseCases;
 using TendrAI.Infrastructure.Adapters.ChatGpt;
 using TendrAI.Infrastructure.Adapters.Pdf;
+using TendrAI.Infrastructure.Adapters.Parsers;
+using TendrAI.Infrastructure.Adapters.Assistant;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,12 +20,8 @@ builder.Services.AddScoped<IAnalyserAppelOffre, AnalyserAppelOffreUseCase>();
 builder.Services.AddScoped<IChatClient>(provider =>
     new OpenAiChatClient(builder.Configuration["OpenAI:ApiKey"]));
 builder.Services.AddScoped<IOpenAiAssistantService, OpenAiAssistantService>();
-
-builder.Services.AddHttpClient<IOpenAiAssistantService, OpenAiAssistantService>(client =>
-{
-    client.BaseAddress = new Uri("https://api.openai.com/v1/");
-    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {builder.Configuration["OpenAI:ApiKey"]}");
-});
+builder.Services.AddScoped<IAppelOffreParser, AppelOffreParser>();
+builder.Services.AddScoped<IMistralAssistantService, MistralAssistantService>();
 
 // Add controllers (for REST API)
 builder.Services.AddControllers();

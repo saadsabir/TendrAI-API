@@ -19,7 +19,7 @@ namespace TendrAI.Tests.Application
         {
             // Arrange
             var mockExtractor = new Mock<IPdfPigTextExtractorService>();
-            var mockIA = new Mock<IOpenAiAssistantService>();
+            var mockIA = new Mock<IMistralAssistantService>();
 
             var fakePdfStream = new MemoryStream(Encoding.UTF8.GetBytes("Fake PDF content"));
             var extractedText = "Extracted text from PDF";
@@ -34,7 +34,7 @@ namespace TendrAI.Tests.Application
                          .ReturnsAsync(extractedText);
 
             mockIA.Setup(x => x.ResumerAppelOffre(extractedText))
-                  .Returns(expectedAppel);
+                  .ReturnsAsync(expectedAppel);
 
             var useCase = new AnalyserAppelOffreUseCase(mockExtractor.Object, mockIA.Object);
 

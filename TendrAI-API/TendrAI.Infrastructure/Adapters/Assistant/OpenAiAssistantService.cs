@@ -6,16 +6,17 @@ using TendrAI.Application.Ports.Out;
 using System.Text;
 using OpenAI.Chat;
 using TendrAI.Domain.Models;
+using TendrAI.Infrastructure.Adapters.Parsers;
 
 public class OpenAiAssistantService : IOpenAiAssistantService
 {
-    private readonly HttpClient _httpClient;
     private readonly IChatClient _chatClient;
+    private readonly IAppelOffreParser _parser;
 
-    public OpenAiAssistantService(HttpClient httpClient, IConfiguration config, IChatClient chatClient)
+    public OpenAiAssistantService(IConfiguration config, IChatClient chatClient, IAppelOffreParser parser)
     {
-        _httpClient = httpClient;
         _chatClient = chatClient ?? throw new ArgumentNullException(nameof(chatClient));
+        _parser = parser;
     }
 
     public AppelOffre ResumerAppelOffre(string texte)
@@ -29,25 +30,18 @@ public class OpenAiAssistantService : IOpenAiAssistantService
             new UserChatMessage(prompt)
         };
 
-        var response = _chatClient.GetCompletion(messages);
-        return ParseAppelOffre(response);
-    }
-
-    public AppelOffre ParseAppelOffre(string message)
-    {
-        var appel = new AppelOffre();
-        var lines = message.Split('\n', StringSplitOptions.RemoveEmptyEntries);
-
-        foreach (var line in lines)
+        try
         {
-            if (line.StartsWith("Titre", StringComparison.OrdinalIgnoreCase))
-                appel.Titre = line.Split(':', 2)[1].Trim();
-            else if (line.StartsWith("Description", StringComparison.OrdinalIgnoreCase))
-                appel.Description = line.Split(':', 2)[1].Trim();
-            else if (line.StartsWith("Date limite", StringComparison.OrdinalIgnoreCase))
-                appel.DateLimite = DateTime.TryParse(line.Split(':', 2)[1].Trim(), out var d) ? d : DateTime.MinValue;
-        }
+            var response = _chatClient.GetCompletion(messages);
 
-        return appel;
+            if (string.IsNullOrWhiteSpace(response))
+                throw new InvalidOperationException("La réponse de l'IA est vide.");
+
+            return _parser.ParseAppelOffre(response);
+        }
+        catch (Exception ex)
+        {
+            throw new ApplicationException("Une erreur est survenue lors de la génération du résumé par OpenAI.", ex);
+        }
     }
 }

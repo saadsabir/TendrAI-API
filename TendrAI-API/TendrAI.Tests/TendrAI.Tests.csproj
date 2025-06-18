@@ -30,8 +30,4 @@
     <ProjectReference Include="..\TendrAI.WebApi\TendrAI.WebApi.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
-
 </Project>

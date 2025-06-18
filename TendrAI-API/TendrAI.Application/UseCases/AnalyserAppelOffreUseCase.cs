@@ -12,10 +12,11 @@ namespace TendrAI.Application.UseCases
     public class AnalyserAppelOffreUseCase : IAnalyserAppelOffre
     {
         private readonly IPdfPigTextExtractorService _extract;
-        private readonly IOpenAiAssistantService _ia;
+        //private readonly IOpenAiAssistantService _ia;//using OpenAI
+        private readonly IMistralAssistantService _ia;//using Mistral
 
 
-        public AnalyserAppelOffreUseCase(IPdfPigTextExtractorService extract, IOpenAiAssistantService ia)
+        public AnalyserAppelOffreUseCase(IPdfPigTextExtractorService extract, IMistralAssistantService ia)
         {
             _extract = extract;
             _ia = ia;
@@ -24,7 +25,7 @@ namespace TendrAI.Application.UseCases
         public async Task<AppelOffre> ExecuteAsync(Stream pdfDocument)
         {
             var text = await _extract.ExtractTextAsync(pdfDocument); //using PdfPig
-            var appel = _ia.ResumerAppelOffre(text);
+            var appel = await _ia.ResumerAppelOffre(text);
             return appel;
         }
     }
