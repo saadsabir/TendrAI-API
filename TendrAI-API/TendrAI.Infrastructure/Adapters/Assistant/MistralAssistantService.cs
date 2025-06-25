@@ -31,7 +31,8 @@ namespace TendrAI.Infrastructure.Adapters.Assistant
                 new ChatMessage(ChatMessage.RoleEnum.System,
                     "Tu es un assistant expert en marchés publics."),
                 new ChatMessage(ChatMessage.RoleEnum.User,
-                    $"Voici le texte d'un appel d'offres :\n{texte}\n. Extraire à partir de ce texte les éléments suivant : titre, description, date limite.")
+                    $"Voici le texte d'un appel d'offres :\n{texte}\n. Extraire à partir de ce texte les éléments suivant : titre, description, date limite, nombre de lots, resumé court de chaque lots." +
+                    $"La réponse doit respecter ce format : - **Titre** : - **Description** : - **Date Limite ** : - **Nombre de lots ** : - **Lots ** : - **Resumé du lot ** :")
             };
 
             var request = new ChatCompletionRequest(

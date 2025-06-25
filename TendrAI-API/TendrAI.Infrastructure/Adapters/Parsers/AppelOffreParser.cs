@@ -23,7 +23,6 @@ namespace TendrAI.Infrastructure.Adapters.Parsers
                     appel.Description = line.Split(':', 2)[1].Trim();
                 else if (line.Contains("Date limite", StringComparison.OrdinalIgnoreCase))
                 {
-                    var rawDate = line.Split(':', 2)[1].Trim();
                     appel.DateLimite = line.Split(':', 2)[1].Trim();
                 }
             }
